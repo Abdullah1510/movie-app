@@ -3,7 +3,9 @@ import React from "react";
 import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
- const API_URL=`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`
+// process.env.REACT_APP_API_KEY
+// let apiKey=c95d1384
+ const API_URL=`http://www.omdbapi.com/?apikey=c95d1384`
 const AppContext=React.createContext();
 
 const AppProvider=({children})=>{
@@ -22,19 +24,13 @@ try {
     if(data.Response==='True'){
         setLoading(false);
         setMovie(data.Search)
-        setError({
-            show:false,
-            msg:''
-        })
-    }else{
-setError({
-    show:true,
-    msg:data.Error,
-})
+        setError({ show: "false", msg: "" });
+    } else {
+      setError({ show: "true", msg: data.Error });
     }
 
 } catch (error) {
-    console.log(error);
+    console.log(error)
 
 }
     }
